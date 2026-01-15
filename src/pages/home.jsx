@@ -20,7 +20,7 @@ export default function Home({ onDemoNavigate }) {
             Meus projetos
           </a>
 
-          <a className="btn ghost" href="https://www.linkedin.com/in/SEU_LINKEDIN" target="_blank" rel="noreferrer">
+          <a className="btn ghost" href="https://www.linkedin.com/in/joseulissesdev/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
         </div>

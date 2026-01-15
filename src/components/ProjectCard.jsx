@@ -19,10 +19,6 @@ export default function ProjectCard({ project, onDemoClick }) {
           GitHub
         </a>
 
-        <a className="btn ghost" href={project.apiUrl} target="_blank" rel="noreferrer">
-          API
-        </a>
-
         <button className="btn ghost" onClick={() => onDemoClick(project.demoPath)}>
           Demo
         </button>
