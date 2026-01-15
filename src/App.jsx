@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import AuthDemo from "./pages/AuthDemo";
 
 export default function App() {

@@ -1,5 +1,11 @@
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
+function buildUrl(path) {
+  const base = String(API_URL || "").replace(/\/+$/, "");
+  const cleanPath = String(path || "").startsWith("/") ? String(path || "") : `/${path}`;
+  return `${base}${cleanPath}`;
+}
+
 // TOKEN (JWT)
  
 
@@ -32,7 +38,7 @@ export async function apiFetch(
     }
   }
 
-  const response = await fetch(`${API_URL}${path}`, {
+  const response = await fetch(buildUrl(path), {
     method,
     headers,
     body: body ? JSON.stringify(body) : undefined,
@@ -48,9 +54,11 @@ export async function apiFetch(
   }
 
   if (!response.ok) {
-    throw new Error(
-      data?.message || `Erro ${response.status}`
-    );
+    const message =
+      (data && typeof data === "object" && (data.message || data.error)) ||
+      (typeof data === "string" ? data : null) ||
+      `Erro ${response.status}`;
+    throw new Error(message);
   }
 
   return data;

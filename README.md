@@ -1,5 +1,53 @@
 # React + Vite
 
+## Integração com o `auth-service` (backend)
+
+Este front foi feito para integrar com o backend:
+https://github.com/joseulisses-spring-projects/auth-service (branch `dev`).
+
+- Base URL (local): `http://localhost:8080`
+- Swagger UI: `http://localhost:8080/swagger-ui/index.html`
+- Health check: `http://localhost:8080/actuator/health`
+
+### Endpoints usados no front
+
+- `POST /users` (criar usuário)
+- `POST /auth/login` (login → retorna `{ "token": "..." }`)
+- `GET /me` (rota protegida)
+
+Para rotas protegidas, o front envia: `Authorization: Bearer <token>`.
+
+### Configuração de ambiente (Vite)
+
+Vite só carrega variáveis a partir de `.env`, `.env.local`, etc.
+Este projeto já inclui:
+
+- `.env.example` (modelo)
+- `.env` (para desenvolvimento local; está no `.gitignore`)
+
+Variável usada:
+
+- `VITE_API_URL=http://localhost:8080`
+
+Observação: o arquivo `urlApi.env` existe no repo, mas **não é carregado automaticamente** pelo Vite.
+
+### Rodando (local)
+
+1) Suba o backend (no repo `auth-service`). Se tiver CORS habilitado por env var, configure:
+
+- `CORS_ALLOWED_ORIGINS=http://localhost:5173`
+
+2) Rode o front:
+
+- `npm install`
+- `npm run dev`
+
+3) Abra o demo:
+
+- `http://localhost:5173/demo/auth`
+
+Você consegue fazer Register, Login e testar a rota protegida `/me`.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

@@ -145,7 +145,7 @@ export default function AuthDemo() {
         <h1 style={{ fontSize: 34 }}>Demo – Auth Service</h1>
         <p className="text-muted">Register, Login e rota protegida usando JWT.</p>
 
-        <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
           <div>
             <div className="text-muted" style={{ fontSize: 12 }}>
               Token atual
@@ -172,14 +172,14 @@ export default function AuthDemo() {
             </div>
           </div>
 
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
             <button
               className="btn primary"
               disabled={loading || !hasToken}
               onClick={handleMe}
               title={!hasToken ? "Faça login para testar /me" : ""}
             >
-              Testar /me
+            Testar /me
             </button>
 
             <button className="btn ghost" disabled={loading} onClick={handleLogout}>
