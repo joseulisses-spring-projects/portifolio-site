@@ -56,7 +56,7 @@ export default function Home({ onDemoNavigate }) {
         <p className="text-muted">
           Se quiser falar sobre oportunidades ou projetos:{" "}
           <a href="mailto:joseulises59@gmail.com" style={{ color: "var(--primary)", fontWeight: 700 }}>
-              Mandar um email.
+              Enviar um email.
           </a>
         </p>
       </div>
